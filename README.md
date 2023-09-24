@@ -110,6 +110,16 @@ Default: `PROJECTROOT=/var/lib/git/repositories`
 Define which file Gitweb reads to learn the git projects. If set to empty string; Gitweb simply scan the `PROJECTROOT` directory.
 Default: `PROJECTS_LIST=/var/lib/git/projects.list`
 
+#### `GITWEB_BASEURL`
+
+Defines the base URL for the Gitweb instance. Allows Gitweb to run in a subdirectory.
+Default: `GITWEB_BASEURL=`
+
+#### `GITWEB_SITE_NAME`
+
+Defines the name which appears in the title bar of the browser when viewing Gitweb.
+Default: `GITWEB_SITE_NAME=`
+
 ## Gitolite
 
 If you have [Gitolie](https://gitolite.com/gitolite/) and Gitweb running on the same machine, you will be able to browse the Gitolite repositories simply by having the services sharing file systems. The [docker compose example](#docker-compose-example) above is doing exactly that.
