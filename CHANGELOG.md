@@ -1,3 +1,7 @@
+# 1.1.0
+
+- Allow additional parameters in env variables.
+
 # 1.0.5
 
 - [github](.github/workflows/testimage.yml) Now use GitHub Actions to test image.

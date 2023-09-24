@@ -6,7 +6,7 @@
 -include    *.mk
 
 BLD_ARG  ?= --build-arg DIST=nginx --build-arg REL=alpine
-BLD_REPO ?= mlan/gitweb
+BLD_REPO ?= tip2tail/gitweb
 BLD_VER  ?= latest
 BLD_TGT  ?= full
 BLD_TGTS ?= base full

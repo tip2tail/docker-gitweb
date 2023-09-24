@@ -12,3 +12,9 @@ $feature{'blame'}{'default'} = [1];
 
 # To enable syntax highlighting with Gitweb, you have to first install the highlight package
 ${DOCKER_HIGHLIGHT_CMT}$feature{'highlight'}{'default'} = [1];
+
+# To enable gitweb to be served from a subdirectory rather than /.
+our $base_url = "${GITWEB_BASE_URL}";
+
+# To set the site name for the gitweb instance.
+our $site_name = "${GITWEB_SITE_NAME}";
