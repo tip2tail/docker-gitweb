@@ -14,7 +14,7 @@ $feature{'blame'}{'default'} = [1];
 ${DOCKER_HIGHLIGHT_CMT}$feature{'highlight'}{'default'} = [1];
 
 # To enable gitweb to be served from a subdirectory rather than /.
-our $per_request_config = 1
+our $per_request_config = 1;
 our $my_url = "${GITWEB_BASEURL}";
 our $my_uri = "${GITWEB_BASEURL}";
 our $base_url = "${GITWEB_BASEURL}";
