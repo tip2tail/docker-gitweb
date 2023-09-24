@@ -2,7 +2,7 @@ version: '3'
 
 services:
   repo-gui:
-    image: mlan/gitweb
+    image: tip2tail/gitweb
     ports:
       - "${CNT_BIND-127.0.0.1:8080}:80"     # HTTP port
     environment:

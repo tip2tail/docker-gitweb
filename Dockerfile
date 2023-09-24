@@ -11,7 +11,7 @@ ARG	REL=alpine
 #
 
 FROM	$DIST:$REL AS base
-LABEL	maintainer=mlan
+LABEL	maintainer=tip2tail
 
 ENV	DOCKER_ENTRY_DIR=/etc/docker/entry.d \
 	DOCKER_BIN_DIR=/usr/local/bin \
@@ -19,7 +19,9 @@ ENV	DOCKER_ENTRY_DIR=/etc/docker/entry.d \
 	DOCKER_ENVSUBST_DIR=usr/share/misc \
 	DOCKER_HIGHLIGHT_CMT='#' \
 	PROJECTROOT=/var/lib/git/repositories \
-	PROJECTS_LIST=/var/lib/git/projects.list
+	PROJECTS_LIST=/var/lib/git/projects.list \
+	GITWEB_BASE_URL="/" \
+	GITWEB_SITE_NAME=""
 
 #
 # Copy config files to image
@@ -42,6 +44,11 @@ RUN	apk --no-cache --update add \
 	fcgiwrap \
 	spawn-fcgi \
 	&& mv /etc/nginx/conf.d/default.conf /etc/nginx/conf.d/default.conf.dist
+
+#
+# copy the theme file over
+#
+COPY src/gitweb/theme/gitweb.css /usr/share/gitweb/static/gitweb.css
 
 #
 # state standard http port 80

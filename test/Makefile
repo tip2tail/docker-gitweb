@@ -5,7 +5,7 @@
 
 -include    *.mk
 
-TST_REPO ?= mlan/gitweb
+TST_REPO ?= tip2tail/gitweb
 TST_VER  ?= latest
 TST_NAME ?= test
 

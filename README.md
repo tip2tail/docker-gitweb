@@ -1,13 +1,15 @@
-# The `mlan/gitweb` repository
+# The `tip2tail/gitweb` repository
 
-![github action ci](https://img.shields.io/github/actions/workflow/status/mlan/docker-gitweb/testimage.yml?label=build&style=flat-square&logo=github)
-![docker version](https://img.shields.io/docker/v/mlan/gitweb?label=version&style=flat-square&logo=docker)
-![image size](https://img.shields.io/docker/image-size/mlan/gitweb/latest.svg?label=size&style=flat-square&logo=docker)
-![docker pulls](https://img.shields.io/docker/pulls/mlan/gitweb.svg?label=pulls&style=flat-square&logo=docker)
-![docker stars](https://img.shields.io/docker/stars/mlan/gitweb.svg?label=stars&style=flat-square&logo=docker)
-![github stars](https://img.shields.io/github/stars/mlan/docker-gitweb.svg?label=stars&style=flat-square&logo=github)
+![github action ci](https://img.shields.io/github/actions/workflow/status/tip2tail/docker-gitweb/testimage.yml?label=build&style=flat-square&logo=github)
+![docker version](https://img.shields.io/docker/v/tip2tail/gitweb?label=version&style=flat-square&logo=docker)
+![image size](https://img.shields.io/docker/image-size/tip2tail/gitweb/latest.svg?label=size&style=flat-square&logo=docker)
+![docker pulls](https://img.shields.io/docker/pulls/tip2tail/gitweb.svg?label=pulls&style=flat-square&logo=docker)
+![docker stars](https://img.shields.io/docker/stars/tip2tail/gitweb.svg?label=stars&style=flat-square&logo=docker)
+![github stars](https://img.shields.io/github/stars/tip2tail/docker-gitweb.svg?label=stars&style=flat-square&logo=github)
 
 Provides a [Gitweb](https://git-scm.com/docs/gitweb) — a Git web interface (web frontend to Git repositories) — docker image (non official).
+
+Based on the [mlan/docker-gitweb](https://github.com/mlan/docker-gitweb) repository.
 
 ## Features
 
@@ -23,20 +25,20 @@ is used. In addition to the three number version number you can use two or
 one number versions numbers, which refers to the latest version of the sub series.
 The tag `latest` references the build based on the latest commit to the repository.
 
-The `mlan/gitweb` repository contains a multi staged built. You select which build using the appropriate tag from `base` and `full` . The image with the tag `base` contains Gitweb.
+The `tip2tail/gitweb` repository contains a multi staged built. You select which build using the appropriate tag from `base` and `full` . The image with the tag `base` contains Gitweb.
 The `full` tag also include support for highlighting.
 
 To exemplify the usage of the tags, lets assume that the latest version is `1.0.0`. In this case `latest`, `1.0.0`, `1.0`, `1`, all identify the same image.
 
 # Usage
 
-You can start a `mlan/gitweb` container from the command line. The example below assumes that you are in a git directory and will start a web server that can be accessed on http://localhost:8080.
+You can start a `tip2tail/gitweb` container from the command line. The example below assumes that you are in a git directory and will start a web server that can be accessed on http://localhost:8080.
 
 ```bash
-docker run -d --name repoweb -e PROJECTS_LIST= -v $(pwd)/.git:/var/lib/git:ro -p 127.0.0.1:8080:80 mlan/gitweb
+docker run -d --name repoweb -e PROJECTS_LIST= -v $(pwd)/.git:/var/lib/git:ro -p 127.0.0.1:8080:80 tip2tail/gitweb
 ```
 
-You can also try out the [demo](#demo) that comes with the [github](https://github.com/mlan/docker-gitweb) repository.
+You can also try out the [demo](#demo) that comes with the [github](https://github.com/tip2tail/docker-gitweb) repository.
 
 ## Docker compose example
 
@@ -54,7 +56,7 @@ services:
       - repo-data:/var/lib/git
 
   repo-gui:
-    image: mlan/gitweb
+    image: tip2tail/gitweb
     ports:
       - "8080:80"
     depends_on:
@@ -70,10 +72,10 @@ For the above example to produce anything interesting the volume `repo-data` mus
 
 ## Demo
 
-This repository contains a `demo` directory which hold the `docker-compose.yml` file as well as a `Makefile` which might come handy. To run the demo first clone the [github](https://github.com/mlan/docker-asterisk) repository.
+This repository contains a `demo` directory which hold the `docker-compose.yml` file as well as a `Makefile` which might come handy. To run the demo first clone the [github](https://github.com/tip2tail/docker-asterisk) repository.
 
 ```bash
-git clone https://github.com/mlan/docker-github.git
+git clone https://github.com/tip2tail/docker-github.git
 ```
 
 From within the `demo` directory you can start the container simply by typing:
@@ -96,7 +98,7 @@ make destroy
 
 ## Environment variables
 
-When you start the `mlan/gitweb` container, you can configure Gitweb by passing one or more environment variables or arguments on the docker run command line.
+When you start the `tip2tail/gitweb` container, you can configure Gitweb by passing one or more environment variables or arguments on the docker run command line.
 
 #### `PROJECTROOT`
 
@@ -117,7 +119,7 @@ The volume `repo-data` allow the containers share files. The volume has similar 
 It is of cause also possible to start the Gitweb container using the docker command:
 
 ```bash
-docker run -d --name repo-gui -v repo-data:/var/lib/git:ro -p 127.0.0.1:8080:80 mlan/gitweb
+docker run -d --name repo-gui -v repo-data:/var/lib/git:ro -p 127.0.0.1:8080:80 tip2tail/gitweb
 ```
 
 # Implementation
