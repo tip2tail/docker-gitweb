@@ -46,6 +46,11 @@ RUN	apk --no-cache --update add \
 	&& mv /etc/nginx/conf.d/default.conf /etc/nginx/conf.d/default.conf.dist
 
 #
+# copy the theme file over
+#
+COPY src/gitweb/theme/gitweb.css /usr/share/gitweb/static/gitweb.css
+
+#
 # state standard http port 80
 #
 
